@@ -23,9 +23,9 @@
     .section-pad { padding: 100px 24px; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .anim-fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .anim-fade-up { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .anim-fade-up.will-animate { opacity: 0; transform: translateY(40px); }
     .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
-    .anim-fallback .anim-fade-up { opacity: 1 !important; transform: translateY(0) !important; }
     .section-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 12px; font-family: 'Barlow Condensed', sans-serif; }
     .section-title { font-family: 'Archivo Black', sans-serif; font-size: clamp(28px, 4vw, 44px); line-height: 1.12; text-transform: uppercase; letter-spacing: -0.01em; }
     .section-subtitle { font-size: 17px; max-width: 560px; margin: 16px auto 0; line-height: 1.6; }
@@ -172,9 +172,10 @@
       .showcase-grid .wide { grid-column: span 1; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-      .why-num { font-size: 32px; min-width: 36px; }
-      .why-item h3 { font-size: 14px; }
+      .why-grid { flex-wrap: wrap; gap: 24px; }
+      .why-item { flex: 1 1 calc(50% - 12px); }
+      .why-num { font-size: 30px; }
+      .why-item h3 { font-size: 13px; }
       .why-item p { font-size: 13px; }
       .logos-grid { gap: 24px; }
       .logos-grid img { height: 40px; }
@@ -184,7 +185,7 @@
       .section-pad { padding: 72px 20px; }
     }
     @media (max-width: 480px) {
-      .why-grid { grid-template-columns: 1fr; gap: 20px; }
+      .why-item { flex: 1 1 100%; }
       .logo-text { font-size: 13px; }
       .logo-img { height: 36px; }
       .logo-link { gap: 8px; }
@@ -465,17 +466,20 @@
   });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); toggle.textContent = '\u2630'; }));
 
-  // Scroll animations with robust fallback
-  const animEls = document.querySelectorAll('.anim-fade-up');
+  // Scroll animations - content is visible by default in CSS
+  // Only add animation to elements below the fold
   if ('IntersectionObserver' in window) {
+    const animEls = document.querySelectorAll('.anim-fade-up');
     const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    animEls.forEach(el => obs.observe(el));
-    // Fallback: force-show anything still hidden after 2.5s
-    setTimeout(() => { animEls.forEach(el => el.classList.add('visible')); }, 2500);
-  } else {
-    document.body.classList.add('anim-fallback');
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('will-animate'); e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    animEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top > window.innerHeight) {
+        el.classList.add('will-animate');
+        obs.observe(el);
+      }
+    });
   }
 
   // Mini gallery
