@@ -442,7 +442,7 @@
             <div class="cm-value">Call Us</div>
           </div>
         </a>
-        <a href="/cdn-cgi/l/email-protection#81e8efe7eec1f2f5f3e0f6e3e4f3f3f8f2f5f3e4e4f5e4f7e4eff5f2afe2eeec" class="contact-method">
+        <a href="mailto:info@strawberrystreetevents.com" class="contact-method">
           <div class="cm-icon">✉️</div>
           <div>
             <div class="cm-label">Email</div>
@@ -523,7 +523,7 @@
 </div>
 
 <!-- ═══ SCRIPTS ═══ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Header scroll
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
@@ -570,4 +570,14 @@
     btn.textContent = '✓ Sent! We\'ll be in touch.';
     btn.style.background = '#2D5A27';
     btn.disabled = true;
-    se
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+
+</body>
+</html>
