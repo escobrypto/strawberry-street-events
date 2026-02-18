@@ -51,7 +51,7 @@
     .mobile-menu .mob-cta { background: var(--strawberry); text-align: center; padding: 16px; border-radius: 8px; margin-top: 12px; font-weight: 700; border-bottom: none; }
 
     .hero { position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; background: url('large-hero/poquoson-hero.jpeg') center center / cover no-repeat; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background: url('large-hero/poquoson-hero.jpeg') center top / cover no-repeat; }
     .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(165deg, rgba(26,26,26,0.90) 0%, rgba(42,16,21,0.82) 40%, rgba(155,24,48,0.72) 100%), linear-gradient(to bottom, transparent 70%, var(--charcoal) 100%); }
     .hero-grid-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 1; background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px); background-size: 64px 64px; }
     .hero-strawberry-accent { position: absolute; bottom: -30px; right: -20px; width: 180px; opacity: 0.07; pointer-events: none; z-index: 1; transform: rotate(-15deg); }
@@ -114,11 +114,11 @@
 
     .why-section { background: var(--cream); position: relative; overflow: hidden; }
     .why-strawberry { position: absolute; bottom: -30px; right: -40px; width: 180px; opacity: 0.05; pointer-events: none; transform: rotate(-20deg); }
-    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-    .why-item { display: flex; gap: 16px; }
-    .why-num { font-family: 'Archivo Black', sans-serif; font-size: 38px; color: rgba(196,30,58,0.13); line-height: 1; min-width: 44px; flex-shrink: 0; }
-    .why-item h3 { font-family: 'Archivo Black', sans-serif; font-size: 15px; margin-bottom: 8px; color: var(--charcoal); text-transform: uppercase; }
-    .why-item p { font-size: 14px; color: var(--mid-gray); line-height: 1.6; }
+    .why-grid { display: flex; gap: 28px; }
+    .why-item { flex: 1 1 0; min-width: 0; display: flex; gap: 14px; }
+    .why-num { font-family: 'Archivo Black', sans-serif; font-size: 36px; color: rgba(196,30,58,0.13); line-height: 1; flex-shrink: 0; }
+    .why-item h3 { font-family: 'Archivo Black', sans-serif; font-size: 14px; margin-bottom: 8px; color: var(--charcoal); text-transform: uppercase; }
+    .why-item p { font-size: 13.5px; color: var(--mid-gray); line-height: 1.6; }
 
     .cta-banner { padding: 80px 24px; background: var(--strawberry); text-align: center; position: relative; overflow: hidden; }
     .cta-banner::before { content: ''; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(0,0,0,0.1) 0%, transparent 50%); }
@@ -394,7 +394,7 @@
           <div class="cm-icon">&#x1F4DE;</div>
           <div><div class="cm-label">Phone</div><div class="cm-value">Call Us</div></div>
         </a>
-        <a href="mailto:info@strawberrystreetevents.com" class="contact-method">
+        <a href="/cdn-cgi/l/email-protection#1d74737b725d6e696f7c6a7f786f6f646e696f787869786b7873696e337e7270" class="contact-method">
           <div class="cm-icon">&#9993;&#65039;</div>
           <div><div class="cm-label">Email</div><div class="cm-value">Email Us</div></div>
         </a>
@@ -451,7 +451,7 @@
   <img src="" alt="Full size preview" id="lightboxImg" />
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Header scroll
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
@@ -504,8 +504,4 @@
     btn.textContent = '\u2713 Sent! We\'ll be in touch.';
     btn.style.background = '#2D5A27';
     btn.disabled = true;
-    setTimeout(() => { btn.textContent = 'Send Message \u2192'; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 4000);
-  }
-</script>
-</body>
-</html>
+    setTi
