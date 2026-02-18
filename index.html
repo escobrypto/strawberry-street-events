@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strawberry Street Events | Full-Service Event Food & Beverage</title>
   <meta name="description" content="Professional full-service event food vendor specializing in festivals, corporate events, and large-scale gatherings. Wild Bill's Soda, fresh lemonade, smoothie bars, and mobile food service." />
-  <meta name="keywords" content="event food vendor, festival food service, corporate event catering, mobile food service, beverage service for events, Wild Bill's soda events, lemonade stand events, smoothie bar events" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
@@ -22,17 +21,15 @@
     }
     .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
     .section-pad { padding: 100px 24px; }
-
-    /* ── Animations ── */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .anim-fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
+    .anim-fallback .anim-fade-up { opacity: 1 !important; transform: translateY(0) !important; }
     .section-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 12px; font-family: 'Barlow Condensed', sans-serif; }
     .section-title { font-family: 'Archivo Black', sans-serif; font-size: clamp(28px, 4vw, 44px); line-height: 1.12; text-transform: uppercase; letter-spacing: -0.01em; }
     .section-subtitle { font-size: 17px; max-width: 560px; margin: 16px auto 0; line-height: 1.6; }
 
-    /* ══════ HEADER ══════ */
     .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all 0.4s ease; border-bottom: 1px solid transparent; }
     .site-header.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(14px); border-bottom-color: rgba(196,30,58,0.25); }
     .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 80px; transition: height 0.3s ease; }
@@ -40,7 +37,7 @@
     .logo-link { display: flex; align-items: center; gap: 12px; }
     .logo-img { height: 52px; width: auto; transition: height 0.3s ease; }
     .site-header.scrolled .logo-img { height: 42px; }
-    .logo-text { font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #fff; }
+    .logo-text { font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #fff; white-space: nowrap; }
     .logo-text span { color: var(--strawberry); margin-left: 4px; }
     .desktop-nav { display: flex; align-items: center; gap: 32px; }
     .nav-link { color: rgba(255,255,255,0.82); font-size: 13.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; font-family: 'Barlow Condensed', sans-serif; }
@@ -53,8 +50,7 @@
     .mobile-menu a { color: #fff; font-size: 17px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 600; }
     .mobile-menu .mob-cta { background: var(--strawberry); text-align: center; padding: 16px; border-radius: 8px; margin-top: 12px; font-weight: 700; border-bottom: none; }
 
-    /* ══════ HERO ══════ */
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero { position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; z-index: 0; background: url('large-hero/poquoson-hero.jpeg') center center / cover no-repeat; }
     .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(165deg, rgba(26,26,26,0.90) 0%, rgba(42,16,21,0.82) 40%, rgba(155,24,48,0.72) 100%), linear-gradient(to bottom, transparent 70%, var(--charcoal) 100%); }
     .hero-grid-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 1; background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px); background-size: 64px 64px; }
@@ -74,14 +70,12 @@
     .hero-badge { font-size: 16px; color: rgba(255,255,255,0.55); letter-spacing: 0.03em; display: flex; align-items: center; gap: 10px; font-weight: 600; }
     .hero-badge i { color: var(--gold); font-style: normal; }
 
-    /* ══════ LOGOS ══════ */
     .logos-section { padding: 64px 24px; background: var(--light-gray); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04); }
     .logos-label { text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 36px; font-family: 'Barlow Condensed', sans-serif; }
     .logos-grid { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
     .logos-grid img { height: 52px; width: auto; object-fit: contain; filter: grayscale(40%) opacity(0.7); transition: filter 0.3s ease, transform 0.3s ease; }
     .logos-grid img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.08); }
 
-    /* ══════ OUR CONCEPTS ══════ */
     .services-section { background: var(--warm-white); position: relative; overflow: hidden; }
     .services-strawberry { position: absolute; top: -40px; left: -60px; width: 160px; opacity: 0.05; pointer-events: none; transform: rotate(25deg); }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 24px; }
@@ -93,9 +87,7 @@
     .service-card > p { font-size: 15px; color: var(--mid-gray); line-height: 1.65; margin-bottom: 20px; }
     .service-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
     .service-features li { font-size: 13.5px; color: var(--slate); display: flex; align-items: center; gap: 8px; font-weight: 500; }
-    .service-features li::before { content: '✓'; color: var(--strawberry); font-weight: 700; font-size: 14px; }
-
-    /* Mini Gallery */
+    .service-features li::before { content: '\2713'; color: var(--strawberry); font-weight: 700; font-size: 14px; }
     .mini-gallery-toggle { background: none; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--strawberry); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
     .mini-gallery-toggle:hover { color: var(--strawberry-dark); }
     .mini-gallery-toggle .arrow { transition: transform 0.3s ease; display: inline-block; font-size: 11px; }
@@ -104,15 +96,12 @@
     .mini-gallery.open { max-height: 400px; opacity: 1; margin-top: 14px; }
     .mini-gallery img { width: 100%; height: 70px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .mini-gallery img:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-
-    /* Lightbox */
     .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 24px; }
     .lightbox.active { display: flex; }
     .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; }
     .lightbox-close { position: absolute; top: 24px; right: 32px; color: #fff; font-size: 36px; cursor: pointer; background: none; border: none; z-index: 10000; transition: color 0.2s; }
     .lightbox-close:hover { color: var(--strawberry-light); }
 
-    /* ══════ SHOWCASE ══════ */
     .showcase-section { padding: 100px 24px; background: var(--charcoal); position: relative; overflow: hidden; }
     .showcase-section::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: url('checkerboardpattern.png') repeat; opacity: 0.03; }
     .showcase-grid { display: grid; gap: 16px; max-width: 1100px; margin: 0 auto; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 280px; }
@@ -123,16 +112,14 @@
     .showcase-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(0,0,0,0.35)); border-radius: 12px; pointer-events: none; }
     .showcase-strawberry { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%) rotate(10deg); width: 140px; opacity: 0.05; pointer-events: none; z-index: 1; }
 
-    /* ══════ WHY US ══════ */
     .why-section { background: var(--cream); position: relative; overflow: hidden; }
     .why-strawberry { position: absolute; bottom: -30px; right: -40px; width: 180px; opacity: 0.05; pointer-events: none; transform: rotate(-20deg); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-    .why-item { display: flex; gap: 20px; }
-    .why-num { font-family: 'Archivo Black', sans-serif; font-size: 42px; color: rgba(196,30,58,0.13); line-height: 1; min-width: 50px; }
-    .why-item h3 { font-family: 'Archivo Black', sans-serif; font-size: 17px; margin-bottom: 8px; color: var(--charcoal); text-transform: uppercase; }
-    .why-item p { font-size: 15px; color: var(--mid-gray); line-height: 1.65; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .why-item { display: flex; gap: 16px; }
+    .why-num { font-family: 'Archivo Black', sans-serif; font-size: 38px; color: rgba(196,30,58,0.13); line-height: 1; min-width: 44px; flex-shrink: 0; }
+    .why-item h3 { font-family: 'Archivo Black', sans-serif; font-size: 15px; margin-bottom: 8px; color: var(--charcoal); text-transform: uppercase; }
+    .why-item p { font-size: 14px; color: var(--mid-gray); line-height: 1.6; }
 
-    /* ══════ CTA ══════ */
     .cta-banner { padding: 80px 24px; background: var(--strawberry); text-align: center; position: relative; overflow: hidden; }
     .cta-banner::before { content: ''; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(0,0,0,0.1) 0%, transparent 50%); }
     .cta-strawberry-left { position: absolute; left: -20px; bottom: -20px; width: 140px; opacity: 0.10; pointer-events: none; transform: rotate(20deg); }
@@ -142,7 +129,6 @@
     .cta-banner .btn-white { background: #fff; color: var(--strawberry); padding: 18px 44px; border-radius: 8px; font-size: 17px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s ease; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.15); font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
     .cta-banner .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
 
-    /* ══════ CONTACT ══════ */
     .contact-section { background: var(--warm-white); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .contact-info h3 { font-family: 'Archivo Black', sans-serif; font-size: 26px; margin-bottom: 20px; color: var(--charcoal); text-transform: uppercase; }
@@ -163,7 +149,6 @@
     .form-submit { width: 100%; padding: 16px; background: var(--strawberry); color: #fff; border: none; border-radius: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.25s ease; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
     .form-submit:hover { background: var(--strawberry-dark); transform: translateY(-1px); }
 
-    /* ══════ FOOTER ══════ */
     .site-footer { background: var(--charcoal); color: rgba(255,255,255,0.5); padding: 48px 24px 32px; text-align: center; position: relative; overflow: hidden; }
     .footer-strawberry { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); width: 220px; opacity: 0.03; pointer-events: none; }
     .footer-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
@@ -176,30 +161,38 @@
     .footer-sister { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.35); }
     .footer-sister a { color: var(--strawberry-light); }
 
-    /* ══════ RESPONSIVE ══════ */
     @media (max-width: 768px) {
       .desktop-nav { display: none !important; }
       .mobile-toggle { display: block !important; }
-      .logo-text { display: none; }
-      .logo-link { justify-content: center; }
-      .header-inner { justify-content: center; position: relative; }
-      .mobile-toggle { position: absolute; right: 24px; }
+      .logo-text { font-size: 15px; }
+      .logo-img { height: 40px; }
+      .logo-link { gap: 10px; }
+      .header-inner { justify-content: space-between; }
       .showcase-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
       .showcase-grid .wide { grid-column: span 1; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; gap: 28px; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .why-num { font-size: 32px; min-width: 36px; }
+      .why-item h3 { font-size: 14px; }
+      .why-item p { font-size: 13px; }
       .logos-grid { gap: 24px; }
       .logos-grid img { height: 40px; }
       .hero-badges { gap: 20px; }
       .contact-form { padding: 28px 22px; }
       .mini-gallery { grid-template-columns: repeat(2, 1fr); }
+      .section-pad { padding: 72px 20px; }
+    }
+    @media (max-width: 480px) {
+      .why-grid { grid-template-columns: 1fr; gap: 20px; }
+      .logo-text { font-size: 13px; }
+      .logo-img { height: 36px; }
+      .logo-link { gap: 8px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="#top" class="logo-link">
@@ -211,20 +204,19 @@
       <a href="#why-us" class="nav-link">Why Us</a>
       <a href="#events" class="nav-link">Events</a>
       <a href="#contact" class="nav-link">Contact</a>
-      <a href="tel:8046908569" class="nav-link nav-cta">📞 Call Us</a>
+      <a href="tel:8046908569" class="nav-link nav-cta">&#x1F4DE; Call Us</a>
     </nav>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">&#9776;</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services">Our Concepts</a>
     <a href="#why-us">Why Us</a>
     <a href="#events">Events</a>
     <a href="#contact">Contact</a>
-    <a href="tel:8046908569" class="mob-cta">📞 Call Us</a>
+    <a href="tel:8046908569" class="mob-cta">&#x1F4DE; Call Us</a>
   </div>
 </header>
 
-<!-- ═══ HERO ═══ -->
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-grid-overlay"></div>
@@ -235,18 +227,17 @@
     <h1>Big Events Deserve<br /><em>Big Flavor</em></h1>
     <p class="hero-sub">Professional mobile food, Wild Bill's Old-Fashioned Soda, fresh-squeezed lemonade, and premium smoothies... built for festivals, corporate events, and large-scale gatherings.</p>
     <div class="hero-btns">
-      <a href="tel:8046908569" class="btn-primary">📞 Call Us</a>
-      <a href="#contact" class="btn-outline">Contact Us →</a>
+      <a href="tel:8046908569" class="btn-primary">&#x1F4DE; Call Us</a>
+      <a href="#contact" class="btn-outline">Contact Us &#8594;</a>
     </div>
     <div class="hero-badges">
-      <span class="hero-badge"><i>✦</i> 500+ Events Served</span>
-      <span class="hero-badge"><i>✦</i> Large Crowd Experts</span>
-      <span class="hero-badge"><i>✦</i> Professional &amp; Dependable</span>
+      <span class="hero-badge"><i>&#10022;</i> 500+ Events Served</span>
+      <span class="hero-badge"><i>&#10022;</i> Large Crowd Experts</span>
+      <span class="hero-badge"><i>&#10022;</i> Professional &amp; Dependable</span>
     </div>
   </div>
 </section>
 
-<!-- ═══ LOGOS ═══ -->
 <section class="logos-section">
   <div class="container">
     <p class="logos-label">Trusted at Events Like</p>
@@ -263,7 +254,6 @@
   </div>
 </section>
 
-<!-- ═══ OUR CONCEPTS ═══ -->
 <section class="services-section section-pad" id="services">
   <img src="strawberry-accents.png" alt="" class="services-strawberry" aria-hidden="true" />
   <div class="container">
@@ -273,8 +263,6 @@
       <p class="section-subtitle" style="color:var(--mid-gray);">Everything your event needs, from crowd-favorite food to specialty beverages, handled with professional precision.</p>
     </div>
     <div class="services-grid">
-
-      <!-- Event Food Service -->
       <div class="service-card anim-fade-up">
         <h3>Event Food Service</h3>
         <p>Mobile food trailers and professional setups built for high-volume events. Fast, efficient service that keeps your crowd happy and lines moving.</p>
@@ -283,7 +271,7 @@
           <li>High-volume capacity</li>
           <li>Professional setup &amp; teardown</li>
         </ul>
-        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">View Photos <span class="arrow">▼</span></button>
+        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">View Photos <span class="arrow">&#9660;</span></button>
         <div class="mini-gallery">
           <img src="sse-food-gallery/crab-and-burgers.jpeg" alt="Crab and burgers" onclick="openLightbox(this)" loading="lazy" />
           <img src="sse-food-gallery/festival-food-display.jpg" alt="Festival food display" onclick="openLightbox(this)" loading="lazy" />
@@ -292,8 +280,6 @@
           <img src="sse-food-gallery/oyster-po-boy.jpeg" alt="Oyster po boy" onclick="openLightbox(this)" loading="lazy" />
         </div>
       </div>
-
-      <!-- Wild Bill's Soda -->
       <div class="service-card anim-fade-up">
         <h3>Wild Bill's Soda</h3>
         <p>The iconic nostalgic soda experience that crowds love. Adds a unique, high-engagement beverage option that becomes an event highlight.</p>
@@ -302,7 +288,7 @@
           <li>Crowd favorite &amp; high engagement</li>
           <li>Strong visual appeal</li>
         </ul>
-        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">View Photos <span class="arrow">▼</span></button>
+        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">View Photos <span class="arrow">&#9660;</span></button>
         <div class="mini-gallery">
           <img src="wild-bills-gallery/7-Head-Unit-stock.jpeg" alt="Wild Bill's 7-head unit" onclick="openLightbox(this)" loading="lazy" />
           <img src="wild-bills-gallery/fair-setup.jpeg" alt="Wild Bill's fair setup" onclick="openLightbox(this)" loading="lazy" />
@@ -312,8 +298,6 @@
           <img src="wild-bills-gallery/wild-bills-line.jpeg" alt="Wild Bill's line" onclick="openLightbox(this)" loading="lazy" />
         </div>
       </div>
-
-      <!-- Specialty Lemonade -->
       <div class="service-card anim-fade-up">
         <h3>Specialty Lemonade</h3>
         <p>Fresh-squeezed lemonade stands that draw crowds and deliver refreshment. A proven must-have for outdoor events and festivals.</p>
@@ -322,13 +306,11 @@
           <li>Eye-catching stand setup</li>
           <li>Outdoor event essential</li>
         </ul>
-        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">View Photos <span class="arrow">▼</span></button>
+        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">View Photos <span class="arrow">&#9660;</span></button>
         <div class="mini-gallery">
           <img src="lemonade-gallery/IMG_4331.jpeg" alt="Fresh lemonade service" onclick="openLightbox(this)" loading="lazy" />
         </div>
       </div>
-
-      <!-- Smoothie Bar -->
       <div class="service-card anim-fade-up">
         <h3>Smoothie Bar</h3>
         <p>Premium smoothie service for health-conscious crowds. Perfect for summer events, corporate wellness days, and upscale gatherings.</p>
@@ -337,17 +319,13 @@
           <li>Custom menus available</li>
           <li>Health-forward crowd pleaser</li>
         </ul>
-        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">Coming Soon <span class="arrow">▼</span></button>
-        <div class="mini-gallery">
-          <!-- Placeholder, add smoothie photos here later -->
-        </div>
+        <button class="mini-gallery-toggle" onclick="toggleGallery(this)">Coming Soon <span class="arrow">&#9660;</span></button>
+        <div class="mini-gallery"></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══ SHOWCASE ═══ -->
 <section class="showcase-section" id="events">
   <div class="container" style="position:relative; z-index:1;">
     <div class="anim-fade-up" style="text-align:center; margin-bottom:56px;">
@@ -356,24 +334,15 @@
       <p class="section-subtitle" style="color:rgba(255,255,255,0.6);">From major festivals to corporate gatherings, our setups deliver every time.</p>
     </div>
     <div class="showcase-grid">
-      <div class="showcase-item wide anim-fade-up">
-        <img src="sse-setups/meadow-event-setup.jpeg" alt="Meadow event setup" class="showcase-img" loading="lazy" />
-      </div>
-      <div class="showcase-item anim-fade-up">
-        <img src="sse-setups/nash-setup.jpeg" alt="Nashville setup" class="showcase-img" loading="lazy" />
-      </div>
-      <div class="showcase-item anim-fade-up">
-        <img src="sse-setups/urbanna-oyster-fest-setup.jpeg" alt="Urbanna Oyster Fest setup" class="showcase-img" loading="lazy" />
-      </div>
-      <div class="showcase-item wide anim-fade-up">
-        <img src="sse-setups/yellow-trailer-setup.JPG" alt="Yellow trailer event setup" class="showcase-img" loading="lazy" />
-      </div>
+      <div class="showcase-item wide anim-fade-up"><img src="sse-setups/meadow-event-setup.jpeg" alt="Meadow event setup" class="showcase-img" loading="lazy" /></div>
+      <div class="showcase-item anim-fade-up"><img src="sse-setups/nash-setup.jpeg" alt="Nashville setup" class="showcase-img" loading="lazy" /></div>
+      <div class="showcase-item anim-fade-up"><img src="sse-setups/urbanna-oyster-fest-setup.jpeg" alt="Urbanna Oyster Fest setup" class="showcase-img" loading="lazy" /></div>
+      <div class="showcase-item wide anim-fade-up"><img src="sse-setups/yellow-trailer-setup.JPG" alt="Yellow trailer event setup" class="showcase-img" loading="lazy" /></div>
     </div>
     <img src="strawberry-accents.png" alt="" class="showcase-strawberry" aria-hidden="true" />
   </div>
 </section>
 
-<!-- ═══ WHY US ═══ -->
 <section class="why-section section-pad" id="why-us">
   <img src="strawberry-accents.png" alt="" class="why-strawberry" aria-hidden="true" />
   <div class="container" style="position:relative; z-index:1;">
@@ -384,46 +353,32 @@
     <div class="why-grid">
       <div class="why-item anim-fade-up">
         <div class="why-num">01</div>
-        <div>
-          <h3>Built for Big Crowds</h3>
-          <p>We specialize in high-volume service at large-scale events. Efficient lines, fast service, and setups designed for maximum throughput, so your guests never wait long.</p>
-        </div>
+        <div><h3>Built for Big Crowds</h3><p>We specialize in high-volume service at large-scale events. Efficient lines, fast service, and setups designed for maximum throughput, so your guests never wait long.</p></div>
       </div>
       <div class="why-item anim-fade-up">
         <div class="why-num">02</div>
-        <div>
-          <h3>Professional Every Time</h3>
-          <p>Clean setups, uniformed staff, and polished presentation. We show up early, set up right, and represent your event with professionalism from start to finish.</p>
-        </div>
+        <div><h3>Professional Every Time</h3><p>Clean setups, uniformed staff, and polished presentation. We show up early, set up right, and represent your event with professionalism from start to finish.</p></div>
       </div>
       <div class="why-item anim-fade-up">
         <div class="why-num">03</div>
-        <div>
-          <h3>Proven Track Record</h3>
-          <p>From the Richmond Folk Festival to the Urbanna Oyster Festival, we've earned the trust of major event organizers across Virginia and beyond.</p>
-        </div>
+        <div><h3>Proven Track Record</h3><p>From the Richmond Folk Festival to the Urbanna Oyster Festival, we've earned the trust of major event organizers across Virginia and beyond.</p></div>
       </div>
       <div class="why-item anim-fade-up">
         <div class="why-num">04</div>
-        <div>
-          <h3>Easy to Work With</h3>
-          <p>Clear communication, reliable timelines, and no surprises. We handle the details so you can focus on running your event, not worrying about food and beverage.</p>
-        </div>
+        <div><h3>Easy to Work With</h3><p>Clear communication, reliable timelines, and no surprises. We handle the details so you can focus on running your event, not worrying about food and beverage.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
 <section class="cta-banner">
   <img src="strawberry-accents.png" alt="" class="cta-strawberry-left" aria-hidden="true" />
   <img src="strawberry-accents.png" alt="" class="cta-strawberry-right" aria-hidden="true" />
   <h2>Ready to Book Your Next Event?</h2>
   <p>Let's talk about how we can make your event unforgettable.</p>
-  <a href="tel:8046908569" class="btn-white">📞 Call Us Now</a>
+  <a href="tel:8046908569" class="btn-white">&#x1F4DE; Call Us Now</a>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
 <section class="contact-section section-pad" id="contact">
   <div class="container">
     <div class="anim-fade-up" style="text-align:center; margin-bottom:56px;">
@@ -436,48 +391,27 @@
         <h3>Reach Us Directly</h3>
         <p>Whether you're planning a 200-person corporate lunch or a 100,000-person music festival, we're ready to help. Get in touch and let's discuss your vision.</p>
         <a href="tel:8046908569" class="contact-method">
-          <div class="cm-icon">📞</div>
-          <div>
-            <div class="cm-label">Phone</div>
-            <div class="cm-value">Call Us</div>
-          </div>
+          <div class="cm-icon">&#x1F4DE;</div>
+          <div><div class="cm-label">Phone</div><div class="cm-value">Call Us</div></div>
         </a>
         <a href="mailto:info@strawberrystreetevents.com" class="contact-method">
-          <div class="cm-icon">✉️</div>
-          <div>
-            <div class="cm-label">Email</div>
-            <div class="cm-value">Email Us</div>
-          </div>
+          <div class="cm-icon">&#9993;&#65039;</div>
+          <div><div class="cm-label">Email</div><div class="cm-value">Email Us</div></div>
         </a>
         <div class="contact-method">
-          <div class="cm-icon">🍓</div>
-          <div>
-            <div class="cm-label">Also check out</div>
-            <div class="cm-value"><a href="https://strawberrystreetcatering.com" target="_blank" rel="noopener" style="color:var(--strawberry);">Strawberry Street Catering</a></div>
-          </div>
+          <div class="cm-icon">&#127827;</div>
+          <div><div class="cm-label">Also check out</div><div class="cm-value"><a href="https://strawberrystreetcatering.com" target="_blank" rel="noopener" style="color:var(--strawberry);">Strawberry Street Catering</a></div></div>
         </div>
       </div>
       <form class="contact-form anim-fade-up" onsubmit="handleSubmit(event)">
         <h3>Contact Us</h3>
         <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
-          </div>
-          <div class="form-group">
-            <label for="org">Organization</label>
-            <input type="text" id="org" name="org" placeholder="Company or event name" />
-          </div>
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required /></div>
+          <div class="form-group"><label for="org">Organization</label><input type="text" id="org" name="org" placeholder="Company or event name" /></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="(804) 555-0000" />
-          </div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="jane@example.com" required /></div>
+          <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="(804) 555-0000" /></div>
         </div>
         <div class="form-group">
           <label for="event-type">Event Type</label>
@@ -490,39 +424,33 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="details">Event Details</label>
-          <textarea id="details" name="details" placeholder="Tell us about your event, date, expected attendance, services needed..."></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send Message →</button>
+        <div class="form-group"><label for="details">Event Details</label><textarea id="details" name="details" placeholder="Tell us about your event, date, expected attendance, services needed..."></textarea></div>
+        <button type="submit" class="form-submit">Send Message &#8594;</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
   <img src="strawberry-accents.png" alt="" class="footer-strawberry" aria-hidden="true" />
   <div class="footer-inner">
-    <div class="footer-logo">🍓 Strawberry Street <span>Events</span></div>
+    <div class="footer-logo">&#127827; Strawberry Street <span>Events</span></div>
     <div class="footer-links">
       <a href="#services">Our Concepts</a>
       <a href="#why-us">Why Us</a>
       <a href="#events">Events</a>
       <a href="#contact">Contact</a>
     </div>
-    <p class="footer-copy">© 2026 Strawberry Street Events. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 Strawberry Street Events. All rights reserved.</p>
     <p class="footer-sister">Sister company: <a href="https://strawberrystreetcatering.com" target="_blank" rel="noopener">Strawberry Street Catering</a></p>
   </div>
 </footer>
 
-<!-- ═══ LIGHTBOX ═══ -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
   <img src="" alt="Full size preview" id="lightboxImg" />
 </div>
 
-<!-- ═══ SCRIPTS ═══ -->
 <script>
   // Header scroll
   const header = document.getElementById('siteHeader');
@@ -530,20 +458,27 @@
 
   // Mobile menu
   const toggle = document.getElementById('mobileToggle');
-  const menu = document.getElementById('mobileMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
   toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    toggle.textContent = isOpen ? '✕' : '☰';
+    const isOpen = mobileMenu.classList.toggle('open');
+    toggle.textContent = isOpen ? '\u2715' : '\u2630';
   });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); toggle.textContent = '☰'; }));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); toggle.textContent = '\u2630'; }));
 
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.anim-fade-up').forEach(el => observer.observe(el));
+  // Scroll animations with robust fallback
+  const animEls = document.querySelectorAll('.anim-fade-up');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    animEls.forEach(el => obs.observe(el));
+    // Fallback: force-show anything still hidden after 2.5s
+    setTimeout(() => { animEls.forEach(el => el.classList.add('visible')); }, 2500);
+  } else {
+    document.body.classList.add('anim-fallback');
+  }
 
-  // Mini gallery toggle
+  // Mini gallery
   function toggleGallery(btn) {
     const gallery = btn.nextElementSibling;
     const isOpen = gallery.classList.toggle('open');
@@ -552,9 +487,8 @@
 
   // Lightbox
   function openLightbox(img) {
-    const lb = document.getElementById('lightbox');
     document.getElementById('lightboxImg').src = img.src;
-    lb.classList.add('active');
+    document.getElementById('lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
   function closeLightbox() {
@@ -563,21 +497,15 @@
   }
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
-  // Form handler
+  // Form
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Sent! We\'ll be in touch.';
+    btn.textContent = '\u2713 Sent! We\'ll be in touch.';
     btn.style.background = '#2D5A27';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = '';
-      btn.disabled = false;
-      e.target.reset();
-    }, 4000);
+    setTimeout(() => { btn.textContent = 'Send Message \u2192'; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 4000);
   }
 </script>
-
 </body>
 </html>
