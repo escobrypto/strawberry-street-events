@@ -39,7 +39,7 @@
     .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}.rv-d5{transition-delay:.4s}
 
     /* ─── LOADER ─── */
-    .loader{position:fixed;inset:0;z-index:100000;background:var(--dark);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px;transition:opacity .8s var(--ease),visibility .8s}.loader.done{opacity:0;visibility:hidden;pointer-events:none}
+    .loader{position:fixed;inset:0;z-index:100000;background:var(--dark);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px;transition:opacity .6s ease,visibility .6s}.loader.done{opacity:0;visibility:hidden;pointer-events:none;z-index:-1}
     .loader-text{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--text-dim)}.loader-text span{color:var(--red)}
     .loader-track{width:120px;height:1px;background:rgba(255,255,255,.04);overflow:hidden}.loader-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--red-glow));width:0%;transition:width .2s ease}
 
@@ -326,7 +326,9 @@ window.closeLightbox=function(){document.getElementById('lb').classList.remove('
 (function(){
   // Loader
   var bar=document.getElementById('loaderBar'),ldr=document.getElementById('loader'),p=0;
-  var iv=setInterval(function(){p+=Math.random()*22+10;if(p>100)p=100;bar.style.width=p+'%';if(p>=100){clearInterval(iv);setTimeout(function(){ldr.classList.add('done');document.querySelector('.hero').classList.add('loaded')},400)}},200);
+  var iv=setInterval(function(){p+=Math.random()*30+20;if(p>100)p=100;bar.style.width=p+'%';if(p>=100){clearInterval(iv);setTimeout(function(){ldr.classList.add('done');document.querySelector('.hero').classList.add('loaded')},250)}},100);
+  // Safety: force dismiss loader after 2s no matter what
+  setTimeout(function(){ldr.classList.add('done');document.querySelector('.hero').classList.add('loaded')},2000);
 
   // Cursor
   var dot=document.getElementById('cDot'),ring=document.getElementById('cRing'),mx=0,my=0,rx=0,ry=0;
